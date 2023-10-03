@@ -29,22 +29,27 @@
 				});
 				tenSwords.addEventListener("targetLost", event => {
 				console.log("swords lost");
+				update();
 				});
 
 				const theStar = document.getElementById("theStar");
 				theStar.addEventListener("targetFound", event => {
+				update("theStar");
 				console.log("star found");
 				});
 				theStar.addEventListener("targetLost", event => {
 				console.log("star lost");
+				update();
 				});
 
 				const acePentacles = document.getElementById("aceOfPentacles");
 				acePentacles.addEventListener("targetFound", event => {
 				console.log("ace found");
+				update("acePentacles");
 				});
 				acePentacles.addEventListener("targetLost", event => {
 				console.log("ace lost");
+				update();
 				});
 
 				const caption = document.getElementById("caption");
@@ -52,14 +57,14 @@
 				function update(card){
 					switch(card){
 						case "tenSwords":
-						caption.innerHTML = "This card represents a young man or woman with an airy, intellectual demeanor, likely born a Capricorn, Aquarius, or Pisces, who wants to learn something new from you or have a discussion with you";
-						break;
+							caption.innerHTML = "This card represents a young man or woman with an airy, intellectual demeanor, likely born a Capricorn, Aquarius, or Pisces, who wants to learn something new from you or have a discussion with you";
+							break;
 						case "acePentacles":
-						caption.innerHTML = "Avoid the temptation to spend critical funds on frivolous goods";
-						break;
+							caption.innerHTML = "Avoid the temptation to spend critical funds on frivolous goods";
+							break;
 						case "theStar":
-						caption.innerHTML = "Someone is about to change his or her mind about an important decision";
-						break;
+							caption.innerHTML = "Someone is about to change his or her mind about an important decision";
+							break;
 						default:
 						caption.innerHTMLJ = "show card to reader and interpretation will appear here";
 					}
@@ -73,6 +78,7 @@
 	</head>
 	<body>
 		<h1 id="caption">show card to reader and interpretation will appear here</h1>
+		<div>
 		<a-scene embedded
       mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind"
       vr-mode-ui="enabled: false"
@@ -98,5 +104,6 @@
 		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
 			</a-entity>
     </a-scene>
+	</div>
 	</body>
 </html>
