@@ -22,3 +22,7 @@ a-scene {
 	margin-right: auto;
 	text-align: center;
   }
+#caption {
+	display: block;
+	text-align: center;
+}
