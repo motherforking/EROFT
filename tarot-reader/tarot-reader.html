@@ -27,23 +27,22 @@
 				console.log("swords found");
 				update("tenSwords");
 				});
-				
 				tenSwords.addEventListener("targetLost", event => {
 				console.log("swords lost");
 				});
+
 				const theStar = document.getElementById("theStar");
 				theStar.addEventListener("targetFound", event => {
 				console.log("star found");
 				});
-				
 				theStar.addEventListener("targetLost", event => {
 				console.log("star lost");
 				});
+
 				const acePentacles = document.getElementById("aceOfPentacles");
 				acePentacles.addEventListener("targetFound", event => {
 				console.log("ace found");
 				});
-				
 				acePentacles.addEventListener("targetLost", event => {
 				console.log("ace lost");
 				});
@@ -61,7 +60,7 @@
 						case "theStar":
 						caption.innerHTML = "Someone is about to change his or her mind about an important decision";
 						break;
-						case default:
+						default:
 						caption.innerHTMLJ = "show card to reader and interpretation will appear here";
 					}
 				}
