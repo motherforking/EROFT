@@ -38,18 +38,18 @@
 				console.log("star found");
 				});
 				theStar.addEventListener("targetLost", event => {
+					update("");
 				console.log("star lost");
-				update("");
 				});
 
 				const acePentacles = document.getElementById("aceOfPentacles");
 				acePentacles.addEventListener("targetFound", event => {
-				console.log("ace found");
 				update("acePentacles");
+				console.log("ace found");
 				});
 				acePentacles.addEventListener("targetLost", event => {
-				console.log("ace lost");
 				update("");
+				console.log("ace lost");
 				});
 
 				const caption = document.getElementById("caption");
@@ -66,7 +66,7 @@
 							caption.innerHTML = "Someone is about to change his or her mind about an important decision";
 							break;
 						default:
-						caption.innerHTMLJ = "show card to reader and interpretation will appear here";
+						caption.innerHTML = "show card to reader and interpretation will appear here";
 					}
 				}
 
