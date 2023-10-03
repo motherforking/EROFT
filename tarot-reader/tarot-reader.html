@@ -9,9 +9,7 @@
 		<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   </head>
 		<script>
-
 			window.onload = init;
-
   			function init(){
     
 				const tenSwords = document.getElementById("tenOfSwords");
@@ -22,7 +20,6 @@
 				tenSwords.addEventListener("targetLost", event => {
 				console.log("swords lost");
 				});
-
 				const theStar = document.getElementById("theStar");
 				theStar.addEventListener("targetFound", event => {
 				console.log("star found");
@@ -31,7 +28,6 @@
 				theStar.addEventListener("targetLost", event => {
 				console.log("star lost");
 				});
-
 				const acePentacles = document.getElementById("aceOfPentacles");
 				acePentacles.addEventListener("targetFound", event => {
 				console.log("ace found");
@@ -40,9 +36,8 @@
 				acePentacles.addEventListener("targetLost", event => {
 				console.log("ace lost");
 				});
-
 			}
-			//pages is weirdly like 1 version behind again again
+			//pages is weirdly like 1 version behind
 		</script>
   </head>
 	</head>
@@ -61,16 +56,23 @@
 			</a-entity>
 
 
-	  
+
 			<a-entity id="theStar" mindar-image-target="targetIndex: 0">
+			<a-entity id="theStar" mindar-image-target="targetIndex: 1">
 		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
 			</a-entity>
 
 
 
 			<a-entity id="aceOfPentacles" mindar-image-target="targetIndex: 0">
+			<a-entity id="aceOfPentacles" mindar-image-target="targetIndex: 2">
 		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
 			</a-entity>
     </a-scene>
+		<!--
+		<a-scene mindar-image="imageTargetSrc: targets.mind; autoStart: false;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+			
+		  </a-scene>
+		  -->
 	</body>
 </html>
