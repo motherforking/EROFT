@@ -9,32 +9,39 @@
 		<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   </head>
 		<script>
-			const tenSwords = document.getElementById("tenOfSwords");
-			tenSwords.addEventListener("targetFound", event => {
-			  console.log("swords found");
-			});
-			
-			tenSwords.addEventListener("targetLost", event => {
-			  console.log("swords lost");
-			});
 
-			const theStar = document.getElementById("theStar");
-			theStar.addEventListener("targetFound", event => {
-			  console.log("star found");
-			});
-			
-			theStar.addEventListener("targetLost", event => {
-			  console.log("star lost");
-			});
+			window.onload = init;
 
-			const acePentacles = document.getElementById("aceOfPentacles");
-			acePentacles.addEventListener("targetFound", event => {
-			  console.log("ace found");
-			});
-			
-			acePentacles.addEventListener("targetLost", event => {
-			  console.log("ace lost");
-			});
+  			function init(){
+    
+				const tenSwords = document.getElementById("tenOfSwords");
+				tenSwords.addEventListener("targetFound", event => {
+				console.log("swords found");
+				});
+				
+				tenSwords.addEventListener("targetLost", event => {
+				console.log("swords lost");
+				});
+
+				const theStar = document.getElementById("theStar");
+				theStar.addEventListener("targetFound", event => {
+				console.log("star found");
+				});
+				
+				theStar.addEventListener("targetLost", event => {
+				console.log("star lost");
+				});
+
+				const acePentacles = document.getElementById("aceOfPentacles");
+				acePentacles.addEventListener("targetFound", event => {
+				console.log("ace found");
+				});
+				
+				acePentacles.addEventListener("targetLost", event => {
+				console.log("ace lost");
+				});
+
+			}
 		</script>
 		<!-- fix ig.... hopefully -->
   </head>
