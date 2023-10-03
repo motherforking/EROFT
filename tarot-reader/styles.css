@@ -17,7 +17,7 @@ img{
 a-scene {
 	height: 300px;
 	width: 600px;
-	display: block;
+	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
