@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <!--
-	____________________________________________________________________________________
-	|																					|
-	|	by josef dunlap																	|
-	|	mindar by hiukim yuen ||https://github.com/hiukim/mind-ar-js||					|
-	|		some code from mindar docs ||https://hiukim.github.io/mind-ar-js-doc/||		|
-	_____________________________________________________________________________________
+	_____________________________________________________________________________________________________
+	|																									|
+	|	by josef dunlap																					|
+	|	mindar by hiukim yuen ||https://github.com/hiukim/mind-ar-js||									|
+	|		some code from mindar docs ||https://hiukim.github.io/mind-ar-js-doc/||						|
+	|	tarot interpretations from Darius Kazemi's corpora on github									|
+	|		https://github.com/dariusk/corpora/blob/master/data/divination/tarot_interpretations.json	|
+	|___________________________________________________________________________________________________|
 -->
 <html>
 	<head>
@@ -23,6 +25,7 @@
 				const tenSwords = document.getElementById("tenOfSwords");
 				tenSwords.addEventListener("targetFound", event => {
 				console.log("swords found");
+				update("tenSwords");
 				});
 				
 				tenSwords.addEventListener("targetLost", event => {
@@ -44,7 +47,28 @@
 				acePentacles.addEventListener("targetLost", event => {
 				console.log("ace lost");
 				});
+
+				const caption = document.getElementById("caption");
+
+				function update(card){
+					switch(card){
+						case "tenSwords":
+						caption.innerHTML = "This card represents a young man or woman with an airy, intellectual demeanor, likely born a Capricorn, Aquarius, or Pisces, who wants to learn something new from you or have a discussion with you";
+						break;
+						case "acePentacles":
+						caption.innerHTML = "Avoid the temptation to spend critical funds on frivolous goods";
+						break;
+						case "theStar":
+						caption.innerHTML = "Someone is about to change his or her mind about an important decision";
+						break;
+						case default:
+						caption.innerHTMLJ = "show card to reader and interpretation will appear here";
+					}
+				}
+
 			}
+
+
 		</script>
   </head>
 	</head>
