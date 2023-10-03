@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>tarot reader</title>
+		<link href="styles.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+		<script>
+			const tenSwords = document.querySelector('#tenOfSwords');
+			tenSwords.addEventListener("targetFound", event => {
+			  console.log("target found");
+			});
+			
+			tenSwords.addEventListener("targetLost", event => {
+			  console.log("target lost");
+			});
+
+			const theStar = document.querySelector('#theStar');
+			theStar.addEventListener("targetFound", event => {
+			  console.log("target found");
+			});
+			
+			theStar.addEventListener("targetLost", event => {
+			  console.log("target lost");
+			});
+
+			const acePentacles = document.querySelector('#aceOfPentacles');
+			acePentacles.addEventListener("targetFound", event => {
+			  console.log("target found");
+			});
+			
+			acePentacles.addEventListener("targetLost", event => {
+			  console.log("target lost");
+			});
+		</script>
+  </head>
+	</head>
+	<body>
+		<a-scene mindar-image="imageTargetSrc: ; autoStart: false;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+			<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+	  
+			<a-entity id="tenOfSwords" mindar-image-target="targetIndex: 0">
+		  <a-plane id="example-plane" class="clickable" color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+			</a-entity>
+		  </a-scene>
+
+		  <a-scene mindar-image="imageTargetSrc: ; autoStart: false;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+			<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+	  
+			<a-entity id="theStar" mindar-image-target="targetIndex: 0">
+		  <a-plane id="example-plane" class="clickable" color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+			</a-entity>
+		  </a-scene>
+
+		  <a-scene mindar-image="imageTargetSrc: ; autoStart: false;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+			<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+	  
+			<a-entity id="aceOfPentacles" mindar-image-target="targetIndex: 0">
+		  <a-plane id="example-plane" class="clickable" color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+			</a-entity>
+		  </a-scene>
+	</body>
+</html>
