@@ -10,9 +10,12 @@ img{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.ss{
 	transition:transform 0.25s ease;
 }
-img:hover {
+.ss:hover {
     -webkit-transform:scale(2);
     transform:scale(2);
 }
