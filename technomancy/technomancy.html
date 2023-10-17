@@ -1,3 +1,6 @@
+/**
+i should add alt text to the bing ai screenshots
+*/
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,15 +11,60 @@
 		<h1>technomancy</h1>
 		<h2>meditation 3 for EROFT, fall 23</h2>
 		<hr><br>
-		<p>to find inspiration for this project, i closed my eyes and scrolled on <a href="https://en.wikipedia.org/wiki/Methods_of_divination">Wikipedia's list of divination techniques</a>. (thanks professor for the resource)</p>
-		<p>the "omancy" that i landed on was <a href="https://en.wikipedia.org/wiki/Ichnomancy">ichnomancy</a>, which is divination based on footprints.</p>
-		<p>immediately, i thought of the idea of a digital footprint, something that i was already (sorta) thinking about for this project.</p>
+		<p>to find inspiration for this project, i closed my eyes and scrolled on <a href="https://en.wikipedia.org/wiki/Methods_of_divination">wikipedia's list of divination techniques</a>. (thanks professor for the resource)</p>
+		<p>the "omancy" that i landed on was <a href="https://en.wikipedia.org/wiki/Ichnomancy">ichnomancy</a>, which is divination based on footprints. immediately, i thought of the idea of a digital footprint, something that i was already (sorta) thinking about for this project.</p>
 		<img src="footprint.gif" alt="an illustration of a footprint behind ones and zeros (digital footprint)">
-		<p>i couldn't find many details about how traditional ichnomancy works, so i'm making it up now.</p>
+		<p>i couldn't find many details about how traditional ichnomancy works, so my interpretation of one's digital footprint isn't really based on anything. the closest thing would be palmistry, but it doesn't really fit. to interpret one's digital footprint, i've defined five "toes" and correlated common websites to each toe. when interpreting someone's digital footprint, it's a lot like astrology, since each toe says something about the person, and the whole footprint is supposed to be a summary of the person.</p>
 		<img src="social-footprint.png" alt="an illustration of a footprint with social media icons replacing the toes">
-		<p>big toe - core - twitter; 2nd toe - appearance - instagram; 3rd toe - digital age - facebook; 4th toe - attitude - youtube;pinky - balance - spotify</p>
-		<h3>future plans</h3>
+		<p>here's a table to see what each toe/website means</p>
+		<table>
+			<tr>
+				<th>toe</th>
+				<th>website</th>
+				<th>meaning</th>
+			</tr>
+			<tr>
+				<td>1st (big toe)</td>
+				<td>twitter</td>
+				<td>core - who you really are</td>
+			</tr>
+			<tr>
+				<td>2nd</td>
+				<td>appearance</td>
+				<td>instagram - how people percieve you</td>
+			</tr>
+			<tr>
+				<td>3rd</td>
+				<td>facebook</td>
+				<td>shame - what you're trying to hide</td>
+			</tr>
+			<tr>
+				<td>4th</td>
+				<td>youtube</td>
+				<td>attitude - how you approach life</td>
+			</tr>
+			<tr>
+				<td>5th (pinky)</td>
+				<td>spotify</td>
+				<td>balance - what keeps you upright</td>
+			</tr>
+		</table>
+		<p>to actually get your digital footprint read, i would like to train an ai/llm to scrape your accounts on these sites and intepret your interactions/posts/whatever. i am not that technically inclined, so i asked bing's ai a few questions about myself. i honestly don't know if bing's ai can really interpret these websites, so the results are a little... interesting</p>
+		<h3>my conversation with "a digital footprint reader" (bing ai)</h3>
 		<hr><br>
-		<p></p>
+		<p>first, i asked it to "read through <p title="hey that's me">@sheepnstufff's</p> tweets and tell me what it says about them". it responded that i post about sheep, knitting, and coding (i tweet about none of these). it also dug up my old pixilart account that i haven't thought about in years. at the end of the response, though, it said that i "seem to be interested in creative and technical activities" which yeah is true. its very clear that this response was written by an llm/ai</p>
+		<img href="reading-sss/twit-response.png">
+		<p>when i asked it to look at my instagram, it told me that either the account doesn't exist (it does) or that it's private (it's not). it instead asked if i wanted information about a german construction company. i said sure why not and it told me a little bit about the construction company and then some random nazi... 2nd toe reading was a bust</p>
+		<img href="reading-sss/ig-response.png">
+		<img href="reading-sss/ig-response2.png">
+		<p>third time's the charm. except it wasn't. it was very uncooperative when i asked it to tell me about my own shameful secrets. very interestingly, it brought up moral reasons to not look at my (public) facebook profile. this just keeps getting worse and worse. also i dont love being morally high-roaded by an ai chatbot</p>
+		<img href="reading-sss/fb-response.png">
+		<p>when asking about my youtube watch history, i got a similar response about it being a breach of privacy. instead i picked a few youtube channels off the top of my head that i like and asked what that says about me (and my additude). it gave me a response that was <i>quite</i> wordy. the keywords and phrases it gave me (and bolded, interestingly) were "sense of humor, taste for adventure, love for gaming, curious, informed, creative, witty, imaginative, eccentric, sarcastic, observant, and irreverent." it gave me three words/phrases per channel that i asked about (i asked about four), but the resulting terms were all over the place. it really reminds me of astrology since most of these words apply to just about everyone. the 4th toe reading was one of the most successful ones.</p>
+		<img href="reading-sss/yt-response.png">
+		<p>finally, the spotify reading. when i first asked, i got the same response about privacy violations, so i instead cloned my liked songs into a public playlist and asked about it. it told me the same privacy stuff again, but told me that the playlist was called "songs to sing in the shower" (its not)and it listed a few songs from the playlist (none of the songs were actually in the playlist). i had to resort to my method for the youtube reading, by listing a few artists i listen to. instead of giving me obvious keywords, it gave me a conclusive summary (in screenshot below).</p>
+		<img href="reading-sss/spot-response.png">
+		<h3>conclusion</h3>
+		<hr><br>
+		<p>the reading was fun, despite the... roadblocks. it very much felt like astrology, since it was telling me about myself. i would encourage others to try asking similar questions to get a reading of their own. or ask different questions to a different chatbot and see how it goes! i would love to create my own site/bot to deliver readings, so stay tuned maybe? i would also like to expand it to include other aspects of online presence, or even customized based on the person (not everyone has twitter or instagram or facebook). overall, i would say my technomancy reading was a success. :)</p>
 	</body>
 </html>
