@@ -27,3 +27,12 @@ a-scene {
 	display: block;
 	text-align: center;
 }
+
+table{
+	display: block;
+}
+
+td, th {
+	text-align: left;
+	padding: 8px;
+  }
