@@ -10,13 +10,13 @@
         function channel(){
             switch(spirit){
                 case "lincoln":
-                    box.placeholer="four score and seven years ago"
+                    box.placeholer="four score and seven years ago";
                     break;
                 case "elvis":
-                    box.placeholer="hey pretty mama"
+                    box.placeholer="hey pretty mama";
                     break;
                 case "swift":
-                    box.placeholer="i shake it off, i shake it off"
+                    box.placeholer="i shake it off, i shake it off";
                     break;
             }
         }
@@ -41,8 +41,9 @@
             <input value="swift" id="swift" type="radio" name="spirit">
             <label for="swift">taylor swift</label><br>
             <input id="channelButton" type="button" value="channel" onclick=""><br>
-            <input id="textbox" name="textbox" type="text" placeholder="">
+            <input id="textbox" name="textbox" type="text" placeholder=""><br>
         </div>
-        <p></p>
+        <p>ideally, the auto-complete would be as the user types. right now, the three "spirits" have one stock message, but i'd love to train a language model on each person's speech</p>
+        <p>i'd also add a few other options for spirits, instead of just those three. also it could be like a browser extension or a dedicated (more decorated) page</p>
 	</body>
 </html>
