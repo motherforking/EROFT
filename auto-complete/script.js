@@ -5,13 +5,13 @@ button.onclick = function() {channel()};
 function channel(){
     switch(spirit){
         case "lincoln":
-            box.placeholer="four score and seven years ago";
+            box.placeholder="four score and seven years ago";
             break;
         case "elvis":
-            box.placeholer="hey pretty mama";
+            box.placeholder="hey pretty mama";
             break;
         case "swift":
-            box.placeholer="i shake it off, i shake it off";
+            box.placeholder="i shake it off, i shake it off";
             break;
             }
         }
