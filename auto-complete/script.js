@@ -1,6 +1,7 @@
-var box = document.getElementById("channelButton");
+var button = document.getElementById("channelButton");
 var spirit = document.querySelector('input[name="spirit"]:checked').value;
-box.onclick = function() {channel()};
+var box = document.getElementById("textbox");
+button.onclick = function() {channel()};
 function channel(){
     switch(spirit){
         case "lincoln":
