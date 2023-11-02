@@ -8,6 +8,7 @@ img{
 	margin-right: auto;
 }
 .box{
+	padding: 2%;
 	border-style: solid;
 	border-width: 2px;
 	border-color: red;

@@ -3,7 +3,25 @@
 	<head>
 		<title>meditation 4 - auto-complete</title>
 		<link href="styles.css" rel="stylesheet">
-        <link href="script.js">
+        <script>
+            function channel(){
+            const spirit = document.querySelector('input[name="spirit"]:checked').id;
+            const box = document.getElementById("textbox");
+            switch(spirit){
+                case "lincoln":
+                    box.placeholder="four score and seven years ago";
+                    break;
+                case "elvis":
+                    box.placeholder="hey pretty mama";
+                    break;
+                case "swift":
+                    box.placeholder="i shake it off, i shake it off";
+                    break;
+                default:
+                    alert('nope');
+                    }
+                }
+        </script>
 	</head>
 	<body>
 		<h1>auto-complete</h1>
@@ -23,8 +41,8 @@
             <label for="elvis">elvis presley</label><br>
             <input value="swift" id="swift" type="radio" name="spirit">
             <label for="swift">taylor swift</label><br>
-            <input id="channelButton" type="button" value="channel" onclick=""><br>
-            <input id="textbox" name="textbox" type="text" placeholder=""><br>
+            <input id="textbox" name="textbox" type="text" placeholder="" size="50" height="50px" fontSize="16">
+            <input id="channelButton" type="button" value="channel" onclick="channel()"><br>
         </div>
         <p>ideally, the auto-complete would be as the user types. right now, the three "spirits" have one stock message, but i'd love to train a language model on each person's speech</p>
         <p>i'd also add a few other options for spirits, instead of just those three. also it could be like a browser extension or a dedicated (more decorated) page</p>
