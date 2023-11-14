@@ -5,7 +5,6 @@
         <script>
 
         function generateButton(){
-            var seed = document.getElementById("box").value;
             document.getElementById("output1").value = "";
             document.getElementById("output2").value = "";
             update("output1");
@@ -13,6 +12,7 @@
         }
          
         function update(output){
+            var seed = document.getElementById("box").value;
             for(var i=0; i<30; i++){
                 var rand;
                 if(output=="output1")
