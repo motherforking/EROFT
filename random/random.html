@@ -45,7 +45,7 @@
             date = new Date();
             if(seed == undefined)
                 seed = date.getTime();
-            var rand = seed >>> 2;
+            var rand = seed >>> 1;
             console.log(rand);
             rand = Math.floor(Math.sqrt(rand));
             return(rand);
