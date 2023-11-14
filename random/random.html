@@ -36,17 +36,17 @@
                 document.getElementById(output).value += nextChar;
                 if(output=="output1")
                     seed += " " + rand.toString().substring(0,4);
+                else
+                    seed = timeRand(seed);
             }
         }
 
-        function timeRand(){
-            var date = new Date();
-            var timeSeed = date.getTime();
-            console.log(timeSeed);
-            var rand = timeSeed >>> 2;
-            console.log(rand);
+        function timeRand(seed){
+            date = new Date();
+            if(seed == undefined)
+            seed = date.getTime();
+            var rand = seed >>> 2;
             rand = Math.floor(Math.sqrt(rand));
-            console.log(rand);
             return(rand);
         }
 
