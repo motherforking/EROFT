@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" src="styles.css";
+        <script>
+
+        function generateButton(){
+            var seed = document.getElementById("box").value;
+            document.getElementById("output1").value = "";
+            document.getElementById("output2").value = "";
+            update("output1");
+            update("output2");
+        }
+         
+        function update(output){
+            for(var i=0; i<30; i++){
+                var rand;
+                if(output=="output1")
+                    rand = "0." + generate(seed).toString().substring(3);
+                else
+                    rand = timeRand();
+                    console.log(output + ", " + rand);
+                var nextChar;
+                if(rand >=0 && rand <.15)
+                    nextChar = "|";
+                else if(rand>=.15 && rand<.3)
+                    nextChar = "\\";
+                else if(rand>=.3 && rand<.45)
+                    nextChar = "/";
+                else if(rand>=.45 && rand<.6)
+                    nextChar = "_";
+                else if(rand>=.6 && rand<.85)
+                    nextChar = " ";
+                else if(rand>=.85 && rand<=1)
+                    nextChar = "\n";
+                document.getElementById(output).value += nextChar;
+                if(output=="output1")
+                    seed += " " + rand.toString().substring(0,4);
+            }
+        }
+
+        function timeRand(){
+            var date = new Date();
+            var timeSeed = date.getTime();
+            var rand = timeSeed >>> 2;
+            rand = Math.floor(Math.sqrt(rand));
+            return(rand);
+        }
+
+        function generate(seed){
+            var nums = [];
+            for(var i=0; i<seed.length; i++){
+                nums.push(seed.charCodeAt(i));
+            }
+            var rand = mean(nums)/nums[Math.floor(nums.length/2)];
+            return(rand < 1 ? rand : 1/rand);
+        }
+
+        function mean(set){
+            var sum = 0;
+            for(var i=0; i<set.length; i++){
+                sum += set[i];
+            }
+            return sum/set.length;
+        }
+        
+        </script>
+    </head>
+    <body>
+        <h1>random</h1>
+		<h2>meditation 5 for EROFT, fall 23</h2>
+		<hr><br>
+        <input type="text" id="box">
+        <button onclick="generateButton()">generate</button><br>
+        <h2>text method</h2>
+        <textarea id="output1" rows="6" cols="30" readonly></textarea><br>
+        <h2>time method</h2>
+        <textarea id="output2" rows="6" cols="30" readonly></textarea>
+    </body>
+</html>
