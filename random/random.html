@@ -42,8 +42,11 @@
         function timeRand(){
             var date = new Date();
             var timeSeed = date.getTime();
+            console.logt(timeSeed);
             var rand = timeSeed >>> 2;
+            console.logt(rand);
             rand = Math.floor(Math.sqrt(rand));
+            console.logt(rand);
             return(rand);
         }
 
