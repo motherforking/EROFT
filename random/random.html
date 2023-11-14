@@ -37,15 +37,16 @@
                 if(output=="output1")
                     seed += " " + rand.toString().substring(0,4);
                 else
-                    seed = timeRand(seed);
+                    seed = timeRand(rand.toString().substring(0,4));
             }
         }
 
         function timeRand(seed){
             date = new Date();
             if(seed == undefined)
-            seed = date.getTime();
+                seed = date.getTime();
             var rand = seed >>> 2;
+            console.log(rand);
             rand = Math.floor(Math.sqrt(rand));
             return(rand);
         }
