@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script>
+
+        function generateButton(){
+            document.getElementById("output1").value = "";
+            document.getElementById("output2").value = "";
+            update("output1");
+            update("output2");
+        }
+         
+        function update(output){
+            var seed = document.getElementById("box").value;
+            for(var i=0; i<60; i++){
+                var rand;
+                if(output=="output1")
+                    rand = "0." + generate(seed).toString().substring(3);
+                else
+                    if(typeof seed == "string")
+                        rand = "0." + Date.now();
+                    else
+                        rand = "0." + Math.sqrt(seed).toString().substring(4);
+                rand = Number(rand);
+                console.log(rand);
+                var nextChar = " ";
+                if(rand >=0 && rand <.15)
+                    nextChar = "|";
+                else if(rand>=.15 && rand<.3)
+                    nextChar = "\\";
+                else if(rand>=.3 && rand<.45)
+                    nextChar = "/";
+                else if(rand>=.45 && rand<.6)
+                    nextChar = "_";
+                else if(rand>=.6 && rand<.95)
+                    nextChar = " ";
+                else if(rand>=.95 && rand<=1)
+                    nextChar = "\n";
+                document.getElementById(output).value += nextChar;
+                if(output=="output1")
+                    seed += " " + rand.toString().substring(0,4);
+                else
+                    seed = Math.sqrt(rand);
+                console.log(seed);
+            }
+        }
+
+        function generate(seed){
+            var nums = [];
+            for(var i=0; i<seed.length; i++){
+                nums.push(seed.charCodeAt(i));
+            }
+            var rand = mean(nums)/nums[Math.floor(nums.length/2)];
+            return(rand < 1 ? rand : 1/rand);
+        }
+
+        function mean(set){
+            var sum = 0;
+            for(var i=0; i<set.length; i++){
+                sum += set[i];
+            }
+            return sum/set.length;
+        }
+        
+        </script>
+    </head>
+    <body>
+        <h1>random</h1>
+		<h2>meditation 5 for EROFT, fall 23</h2>
+		<hr><br>
+        <p>randomness can be used to create art in many different ways. i have two systems of randomness and one system of turning this randomness into art.</p>
+        <img src="colors.gif" alt="a box that flashes a different randon color every few ticks">
+        <p>my first random system is based on text. when a user enters text, it is turned into a set of ascii values. then to get a "random number", the program divides the middle number of the set by the mean of the set. to get mulitple random numbers in a row, it adds the previous number to the end of the original input seed, and runs the function with that seed. </p>
+        <p>the second random system is based on the current time. it requires no user input. it takes the current time in milliseconds, and removes the first 4 digits. to get multiple random numbers in a row, it takes the square root of the previous number, and then removes the first 4 digits.</p>
+        <p>the art that i want to turn the numbers into is ascii art. i'm inspired(?) by chatgpt's consistent failure to create ascii art, no matter what people request of it.</p>
+        <img src="gpt.jpeg" alt="chat gpt trying (and failing) to create ascii art">
+        <p>to turn the numbers into art, i assigned different ranges from 0 to 1, inclusive, to six different ascii characters. they are the space character, the carriage return character, and the visible characters: \ | / _ . the four visible characters are equally as likely, 15% each. there's a 35% chance of a space, and a 5% chance of a return. the art that it produces is random ascii art.</p>
+
+        <br>
+        <div class="box">
+            <input type="text" id="box">
+            <button onclick="generateButton()">generate</button><br>
+            <h2>text method</h2>
+            <textarea id="output1" rows="6" cols="60" readonly></textarea><br>
+            <h2>time method</h2>
+            <textarea id="output2" rows="6" cols="60" readonly></textarea>
+        </div>
+    </body>
+</html>
