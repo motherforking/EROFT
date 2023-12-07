@@ -27,7 +27,6 @@
 			 	const arSystem = sceneEl.systems["mindar-image-system"];
 				const pic = document.getElementById("scanning");
 				const caption = document.getElementById("caption");
-
 				const interpretations=[["Nurturing yourself and others", 
                     "Bearing fruit", "Celebrating your body", "Bearing (literal or figurative) children", "Reveling in luxury", "Overindulging", "Being greedy", "Smothering someone with attention", "Debilitating someone by being overprotective", "Inhibiting productivity by obsessing on productivity"], 
 					["Wanting something better", "Blazing your own trail", "Realizing there must be more to life", "Leaving an unhealthy situation behind", "Starting your own business", "Being implacable", "Finding fault", "Nitpicking", "Refusing to settle down", "Running away from problems or confrontations"],
@@ -40,7 +39,6 @@
 				theEmpress.addEventListener("targetLost", event => {
 				update("");
 				});
-
 				const sevenCups = document.getElementById("sevenOfCups");
 				sevenCups.addEventListener("targetFound", event => {
 				update("sevenCups");
@@ -48,7 +46,6 @@
 				sevenCups.addEventListener("targetLost", event => {
 				update("");
 				});
-
 				const sixPentacles = document.getElementById("sixOfPentacles");
 				sixPentacles.addEventListener("targetFound", event => {
 				update("sixPentacles");
@@ -56,7 +53,6 @@
 				sixPentacles.addEventListener("targetLost", event => {
 				update("");
 				});
-
 				const back = document.getElementById("back");
 				back.addEventListener("targetFound", event => {
 				update("back");
@@ -64,30 +60,30 @@
 				back.addEventListener("targetLost", event => {
 				update("");
 				});
-
 				function sleep(ms) {
     				return new Promise(resolve => setTimeout(resolve, ms));
 				}
-
 				async function update(card){
-					var rand = Math.floor(Math.random() * 10);
+					var rand = Math.floor(Math.random() * 10)+1;
 					switch(card){
 						case "theEmpress":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[0][rand];
-							await sleep(6000);
+							await sleep(10000);
+							await sleep(7000);
 							if(stage!=0) move();
 							break;
 						case "sevenCups":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[1][rand];
-							await sleep(6000);
+							await sleep(7000);
 							if(stage!=0) move();
+						break;
 							break;
 						case "sixPentacles":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[2][rand];
-							await sleep(6000);
+							await sleep(7000);
 							if(stage!=0) move();
 							break;
 						case "back":
@@ -95,7 +91,6 @@
 							break;
 					}
 				}
-
 				function move(){
 					switch(stage){
 						case 0:
@@ -108,34 +103,31 @@
 							stage3();
 							break;
 						case 3:
+							stage3();
 							stage4();
 							break;
 						case 4:
-							stage5();
+							stage3();
 							break;
 						default:
 							console.log("tried to move past last stage");
 					}
 				}
-
 				function stage1(){
 					stage++;
 					caption.innerHTML = "first, shuffle your deck, then take the top 3 cards and lay them face-down in front of you. (hold up the back of any other card to proceed)";
 					pic.src = "3 cards.png";
 				}
-
 				function stage2(){
 					stage++;
 					caption.innerHTML = "The leftmost card is your past; hold it up to recieve your interpretation";
 					pic.src = "Eye.gif";
 				}
-
 				function stage3(){
 					stage++;
 					caption.innerHTML = "The middle card is your present; hold it up to recieve your interpretation";
 					pic.src = "Eye.gif";
 				}
-
 				function stage4(){
 					stage++;
 					caption.innerHTML = "The rightmost card is your future; hold it up to recieve your interpretation";
