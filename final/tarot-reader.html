@@ -94,15 +94,19 @@
 				function move(){
 					switch(stage){
 						case 0:
-							caption.innerHTML = "Alright! let's get started";
-							setTimeout(stage1(), 3000);
+							stage1();
 							break;
 						case 1:
-							caption.innerHTML = "The leftmost card is your past; hold it up to recieve your interpretation";
-							setTimeout(stage2(), 2000);
+							stage2();
 							break;
 						case 2:
-							setTimeout(stage3(), 5000);
+							stage3();
+							break;
+						case 3:
+							stage3();
+							break;
+						case 4:
+							stage3();
 							break;
 						default:
 							console.log("tried to move past last stage");
@@ -111,13 +115,12 @@
 
 				function stage1(){
 					stage++;
-					caption.innerHTML = "first, shuffle your deck";
-					wait(2000);
-					caption.innerHTML = "Now, take the top 3 cards and lay them face-down in front of you. (hold up the back of any other card to proceed)";
+					caption.innerHTML = "first, shuffle your deck, then take the top 3 cards and lay them face-down in front of you. (hold up the back of any other card to proceed)";
 					pic.src = "3 cards.png";
 				}
 
 				function stage2(){
+					caption.innerHTML = "The leftmost card is your past; hold it up to recieve your interpretation";
 					stage++;
 					pic.src = "Eye.gif";
 				}
