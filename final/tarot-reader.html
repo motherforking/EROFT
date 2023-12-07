@@ -22,8 +22,11 @@
 		<script>
 			window.onload = init;
   			function init(){
+				var stage = 0;
 				const sceneEl = document.querySelector('a-scene');
 			 	const arSystem = sceneEl.systems["mindar-image-system"];
+				const pic = document.getElementById("scanning");
+				const caption = document.getElementById("caption");
 
 				const interpretations=[["Nurturing yourself and others", 
                     "Bearing fruit", "Celebrating your body", "Bearing (literal or figurative) children", "Reveling in luxury", "Overindulging", "Being greedy", "Smothering someone with attention", "Debilitating someone by being overprotective", "Inhibiting productivity by obsessing on productivity"], 
@@ -62,25 +65,60 @@
 				update("");
 				});
 
-				const caption = document.getElementById("caption");
+				
 
 				function update(card){
 					var rand = Math.floor(Math.random() * 10)+1;
 					switch(card){
 						case "theEmpress":
 							caption.innerHTML = interpretations[0][rand];
+							if(stage!=0) move();
 							break;
 						case "sevenCups":
 							caption.innerHTML = interpretations[1][rand];
+							if(stage!=0) move();
 						break;
 						case "sixPentacles":
 							caption.innerHTML = interpretations[2][rand];
+							if(stage!=0) move();
 							break;
 						case "back":
+							move();
 							break;
 						default:
 						caption.innerHTML = "show card to reader and interpretation will appear here";
 					}
+				}
+
+				function move(){
+					switch(stage){
+						case 0:
+							caption.innerHTML = "Alright! let's get started";
+							setTimeout(stage1(), 3000);
+							break;
+						case 1:
+							caption.innerHTML = "The leftmost card is your past; hold it up to recieve your interpretation";
+							setTimeout(stage2(), 3000);
+							break;
+						case 2:
+							setTimeout(stage3(), 5000);
+							break;
+						default:
+							console.log("tried to move past last stage");
+					}
+				}
+
+				function stage1(){
+					stage++;
+					caption.innerHTML = "first, shuffle your deck";
+					wait(5000);
+					caption.innerHTML = "Now, take the top 3 cards and lay them face-down in front of you. (hold up the back of any other card to proceed)";
+					pic.src = "3 cards.png";
+				}
+
+				function stage2(){
+					stage++;
+					pic.src = "Eye.gif";
 				}
 
 			}
@@ -90,8 +128,8 @@
   </head>
 	</head>
 	<body>
-		<h1 id="caption">show card to reader and interpretation will appear here</h1>
-		<img id="scanning" src="Eye.gif">
+		<h1 id="caption">hello, i'm here to walk you through a real-life tarot reading. to start, hold up the back of any card</h1>
+		<img id="scanning" src="Face.png">
 		<div>
 			<a-scene embedded
 				mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind; uiScanning: #scanning"
