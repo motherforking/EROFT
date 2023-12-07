@@ -58,10 +58,10 @@
 				});
 
 				const back = document.getElementById("back");
-				sevenCups.addEventListener("targetFound", event => {
+				back.addEventListener("targetFound", event => {
 				update("back");
 				});
-				sevenCups.addEventListener("targetLost", event => {
+				back.addEventListener("targetLost", event => {
 				update("");
 				});
 
@@ -71,14 +71,17 @@
 					var rand = Math.floor(Math.random() * 10)+1;
 					switch(card){
 						case "theEmpress":
+							pic.src="Face.png";
 							caption.innerHTML = interpretations[0][rand];
 							if(stage!=0) move();
 							break;
 						case "sevenCups":
+							pic.src="Face.png";
 							caption.innerHTML = interpretations[1][rand];
 							if(stage!=0) move();
 						break;
 						case "sixPentacles":
+							pic.src="Face.png";
 							caption.innerHTML = interpretations[2][rand];
 							if(stage!=0) move();
 							break;
@@ -118,6 +121,11 @@
 
 				function stage2(){
 					stage++;
+					pic.src = "Eye.gif";
+				}
+
+				function stage3(){
+					caption.innerHTML = "The middle card is your present; hold it up to recieve your interpretation";
 					pic.src = "Eye.gif";
 				}
 
