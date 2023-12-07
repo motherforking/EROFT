@@ -65,14 +65,17 @@
 				update("");
 				});
 
-				
+				function sleep(ms) {
+    				return new Promise(resolve => setTimeout(resolve, ms));
+				}
 
-				function update(card){
+				async function update(card){
 					var rand = Math.floor(Math.random() * 10)+1;
 					switch(card){
 						case "theEmpress":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[0][rand];
+							await sleep(10000);
 							if(stage!=0) move();
 							break;
 						case "sevenCups":
