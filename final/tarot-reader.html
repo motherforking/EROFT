@@ -22,23 +22,28 @@
 		<script>
 			window.onload = init;
   			function init(){
-				
-				JSON.parse('tarot_interpretations.json');
+				const sceneEl = document.querySelector('a-scene');
+			 	const arSystem = sceneEl.systems["mindar-image-system"];
+
+				const interpretations=[["Nurturing yourself and others", 
+                    "Bearing fruit", "Celebrating your body", "Bearing (literal or figurative) children", "Reveling in luxury", "Overindulging", "Being greedy", "Smothering someone with attention", "Debilitating someone by being overprotective", "Inhibiting productivity by obsessing on productivity"], 
+					["Wanting something better", "Blazing your own trail", "Realizing there must be more to life", "Leaving an unhealthy situation behind", "Starting your own business", "Being implacable", "Finding fault", "Nitpicking", "Refusing to settle down", "Running away from problems or confrontations"],
+					["Measuring progress toward your goal", "Looking at results with an eye toward improving performance", "Asking, \"How happy am I\"", "Coming up with ideas for improving your health or prosperity", "Deciding it's time for a change", ]];
     
+				const theEmpress = document.getElementById("theEmpress");
+				theEmpress.addEventListener("targetFound", event => {
+				update("theEmpress");
+				});
+				theEmpress.addEventListener("targetLost", event => {
+				update("");
+				});
+
 				const sevenCups = document.getElementById("sevenOfCups");
 				sevenCups.addEventListener("targetFound", event => {
 				update("sevenCups");
 				});
 				sevenCups.addEventListener("targetLost", event => {
 				update("");
-				});
-
-				const theEmpress = document.getElementById("theEmpress");
-				theEmpress.addEventListener("targetFound", event => {
-				update("theEmpress");
-				});
-				theEmpress.addEventListener("targetLost", event => {
-					update("");
 				});
 
 				const sixPentacles = document.getElementById("sixOfPentacles");
@@ -51,7 +56,7 @@
 
 				const back = document.getElementById("back");
 				sevenCups.addEventListener("targetFound", event => {
-				update("sevenCups");
+				update("back");
 				});
 				sevenCups.addEventListener("targetLost", event => {
 				update("");
@@ -60,15 +65,18 @@
 				const caption = document.getElementById("caption");
 
 				function update(card){
+					var rand = Math.floor(Math.random() * 10)+1;
 					switch(card){
-						case "tenSwords":
-							caption.innerHTML = "This card represents a young man or woman with an airy, intellectual demeanor, likely born a Capricorn, Aquarius, or Pisces, who wants to learn something new from you or have a discussion with you";
+						case "theEmpress":
+							caption.innerHTML = interpretations[0,rand];
 							break;
-						case "acePentacles":
-							caption.innerHTML = "Avoid the temptation to spend critical funds on frivolous goods";
+						case "sevenCups":
+							caption.innerHTML = interpretations[1,rand];
+						break;
+						case "sixPentacles":
+							caption.innerHTML = interpretations[2,rand];
 							break;
-						case "theStar":
-							caption.innerHTML = "Someone is about to change his or her mind about an important decision";
+						case "back":
 							break;
 						default:
 						caption.innerHTML = "show card to reader and interpretation will appear here";
@@ -88,17 +96,17 @@
 		</div>
 		<div>
 			<a-scene embedded
-				mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind; uiScanning=#scanning"
+				mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind; uiScanning: #scanning"
 				vr-mode-ui="enabled: false"
 				device-orientation-permission-ui="enabled: false"
 				color-space="sRGB"
 				renderer="colorManagement: true, physicallyCorrectLights"
 			>
       		<a-camera position="0 0 0" look-controls="enabled:true"></a-camera>
-			<a-entity id="sevenOfCups" mindar-image-target="targetIndex: 2"></a-entity>
-			<a-entity id="theEmpress" mindar-image-target="targetIndex: 1"></a-entity>
-			<a-entity id="sixOfPentacles" mindar-image-target="targetIndex: 3"></a-entity>
 			<a-entity id="back" mindar-image-target="targetIndex: 0"></a-entity>
+			<a-entity id="theEmpress" mindar-image-target="targetIndex: 1"></a-entity>
+			<a-entity id="sevenOfCups" mindar-image-target="targetIndex: 2"></a-entity>
+			<a-entity id="sixOfPentacles" mindar-image-target="targetIndex: 3"></a-entity>
     </a-scene>
 	</div>
 	</body>
