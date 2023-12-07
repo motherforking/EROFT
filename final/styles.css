@@ -5,7 +5,9 @@ body{
 	margin: 20%;
 	}
 video{
-	display: none;
+	width: 10%;
+	margin-left: auto;
+	margin-right: auto;
 }
 img{
 	width: 50%;
