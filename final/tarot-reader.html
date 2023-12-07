@@ -30,7 +30,7 @@
 				const interpretations=[["Nurturing yourself and others", 
                     "Bearing fruit", "Celebrating your body", "Bearing (literal or figurative) children", "Reveling in luxury", "Overindulging", "Being greedy", "Smothering someone with attention", "Debilitating someone by being overprotective", "Inhibiting productivity by obsessing on productivity"], 
 					["Wanting something better", "Blazing your own trail", "Realizing there must be more to life", "Leaving an unhealthy situation behind", "Starting your own business", "Being implacable", "Finding fault", "Nitpicking", "Refusing to settle down", "Running away from problems or confrontations"],
-					["Measuring progress toward your goal", "Looking at results with an eye toward improving performance", "Asking, \"How happy am I\"", "Coming up with ideas for improving your health or prosperity", "Deciding it's time for a change"]];
+					["Giving time, money, or effort to a charity", "Taking part in a group effort", "Lending your resources to others without expecting anything in return", "Making sure everyone is treated equally", "Working together toward a common goal", "Making a loan as a means of gaining control over someone", "Using charitable acts to draw attention to yourself", "Dividing work or resources unfairly", "Failing to do your part in a group effort", "Ignoring obligations and commitments"]];
     
 				const theEmpress = document.getElementById("theEmpress");
 				theEmpress.addEventListener("targetFound", event => {
@@ -60,9 +60,11 @@
 				back.addEventListener("targetLost", event => {
 				update("");
 				});
+
 				function sleep(ms) {
     				return new Promise(resolve => setTimeout(resolve, ms));
 				}
+
 				async function update(card){
 					var rand = Math.floor(Math.random() * 10);
 					switch(card){
