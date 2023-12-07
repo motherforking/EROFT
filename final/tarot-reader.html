@@ -68,13 +68,13 @@
 					var rand = Math.floor(Math.random() * 10)+1;
 					switch(card){
 						case "theEmpress":
-							caption.innerHTML = interpretations[0,rand];
+							caption.innerHTML = interpretations[0][rand];
 							break;
 						case "sevenCups":
-							caption.innerHTML = interpretations[1,rand];
+							caption.innerHTML = interpretations[1][rand];
 						break;
 						case "sixPentacles":
-							caption.innerHTML = interpretations[2,rand];
+							caption.innerHTML = interpretations[2][rand];
 							break;
 						case "back":
 							break;
@@ -90,9 +90,6 @@
   </head>
 	</head>
 	<body>
-		<img src="Face.png">
-		<img src="Card prompt.png">
-		<img src="3 cards.png">
 		<h1 id="caption">show card to reader and interpretation will appear here</h1>
 		<img id="scanning" src="Eye.gif">
 		<div>
