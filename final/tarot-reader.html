@@ -64,12 +64,11 @@
     				return new Promise(resolve => setTimeout(resolve, ms));
 				}
 				async function update(card){
-					var rand = Math.floor(Math.random() * 10)+1;
+					var rand = Math.floor(Math.random() * 10);
 					switch(card){
 						case "theEmpress":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[0][rand];
-							await sleep(10000);
 							await sleep(7000);
 							if(stage!=0) move();
 							break;
@@ -103,11 +102,10 @@
 							stage3();
 							break;
 						case 3:
-							stage3();
 							stage4();
 							break;
 						case 4:
-							stage3();
+							stage5();
 							break;
 						default:
 							console.log("tried to move past last stage");
