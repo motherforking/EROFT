@@ -24,27 +24,35 @@
   			function init(){
 				JSON.parse('tarot_interpretations.json');
     
-				const tenSwords = document.getElementById("tenOfSwords");
-				tenSwords.addEventListener("targetFound", event => {
-				update("tenSwords");
+				const sevenCups = document.getElementById("sevenOfCups");
+				sevenCups.addEventListener("targetFound", event => {
+				update("sevenCups");
 				});
-				tenSwords.addEventListener("targetLost", event => {
+				sevenCups.addEventListener("targetLost", event => {
 				update("");
 				});
 
-				const theStar = document.getElementById("theStar");
-				theStar.addEventListener("targetFound", event => {
-				update("theStar");
+				const theEmpress = document.getElementById("theEmpress");
+				theEmpress.addEventListener("targetFound", event => {
+				update("theEmpress");
 				});
-				theStar.addEventListener("targetLost", event => {
+				theEmpress.addEventListener("targetLost", event => {
 					update("");
 				});
 
-				const acePentacles = document.getElementById("aceOfPentacles");
-				acePentacles.addEventListener("targetFound", event => {
-				update("acePentacles");
+				const sixPentacles = document.getElementById("sixOfPentacles");
+				sixPentacles.addEventListener("targetFound", event => {
+				update("sixPentacles");
 				});
-				acePentacles.addEventListener("targetLost", event => {
+				sixPentacles.addEventListener("targetLost", event => {
+				update("");
+				});
+
+				const back = document.getElementById("back");
+				sevenCups.addEventListener("targetFound", event => {
+				update("sevenCups");
+				});
+				sevenCups.addEventListener("targetLost", event => {
 				update("");
 				});
 
@@ -74,31 +82,22 @@
 	</head>
 	<body>
 		<h1 id="caption">show card to reader and interpretation will appear here</h1>
+		<div id="scanning">
+			<img src="eye.gif">
+		</div>
 		<div>
-		<a-scene embedded
-      mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false"
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
-    >
-      <a-camera position="0 0 0" look-controls="enabled:true"></a-camera>
-	  
-			<a-entity id="tenOfSwords" mindar-image-target="targetIndex: 0">
-		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-			</a-entity>
-
-
-
-			<a-entity id="theStar" mindar-image-target="targetIndex: 2">
-		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-			</a-entity>
-
-
-
-			<a-entity id="aceOfPentacles" mindar-image-target="targetIndex: 1">
-		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-			</a-entity>
+			<a-scene embedded
+				mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind; uiScanning=#scanning"
+				vr-mode-ui="enabled: false"
+				device-orientation-permission-ui="enabled: false"
+				color-space="sRGB"
+				renderer="colorManagement: true, physicallyCorrectLights"
+			>
+      		<a-camera position="0 0 0" look-controls="enabled:true"></a-camera>
+			<a-entity id="sevenOfCups" mindar-image-target="targetIndex: 2"></a-entity>
+			<a-entity id="theEmpress" mindar-image-target="targetIndex: 1"></a-entity>
+			<a-entity id="sixOfPentacles" mindar-image-target="targetIndex: 3"></a-entity>
+			<a-entity id="back" mindar-image-target="targetIndex: 0"></a-entity>
     </a-scene>
 	</div>
 	</body>
