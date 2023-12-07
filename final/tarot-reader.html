@@ -70,24 +70,24 @@
 				}
 
 				async function update(card){
-					var rand = Math.floor(Math.random() * 10)+1;
+					var rand = Math.floor(Math.random() * 10);
 					switch(card){
 						case "theEmpress":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[0][rand];
-							await sleep(7000);
+							await sleep(6000);
 							if(stage!=0) move();
 							break;
 						case "sevenCups":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[1][rand];
-							await sleep(7000);
+							await sleep(6000);
 							if(stage!=0) move();
 							break;
 						case "sixPentacles":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[2][rand];
-							await sleep(7000);
+							await sleep(6000);
 							if(stage!=0) move();
 							break;
 						case "back":
@@ -111,7 +111,7 @@
 							stage4();
 							break;
 						case 4:
-							stage3();
+							stage5();
 							break;
 						default:
 							console.log("tried to move past last stage");
@@ -159,7 +159,7 @@
 		<img id="scanning" src="Face.png">
 		<div>
 			<a-scene embedded
-				mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind; uiScanning: #scanning"
+				mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind; uiScanning: #scanning; uiLoading: no"
 				vr-mode-ui="enabled: false"
 				device-orientation-permission-ui="enabled: false"
 				color-space="sRGB"
