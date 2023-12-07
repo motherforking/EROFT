@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+	_____________________________________________________________________________________________________
+	|																									|
+	|	by josef dunlap																					|
+	|	mindar by hiukim yuen ||https://github.com/hiukim/mind-ar-js||									|
+	|		some code from mindar docs ||https://hiukim.github.io/mind-ar-js-doc/||						|
+	|	tarot interpretations from Darius Kazemi's corpora on github									|
+	|		https://github.com/dariusk/corpora/blob/master/data/divination/tarot_interpretations.json	|
+	|___________________________________________________________________________________________________|
+-->
+<html>
+	<head>
+		<title>tarot reader</title>
+		<link href="styles.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="data.json"></script>
+		<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  </head>
+		<script>
+			window.onload = init;
+  			function init(){
+				JSON.parse('tarot_interpretations.json');
+    
+				const tenSwords = document.getElementById("tenOfSwords");
+				tenSwords.addEventListener("targetFound", event => {
+				update("tenSwords");
+				});
+				tenSwords.addEventListener("targetLost", event => {
+				update("");
+				});
+
+				const theStar = document.getElementById("theStar");
+				theStar.addEventListener("targetFound", event => {
+				update("theStar");
+				});
+				theStar.addEventListener("targetLost", event => {
+					update("");
+				});
+
+				const acePentacles = document.getElementById("aceOfPentacles");
+				acePentacles.addEventListener("targetFound", event => {
+				update("acePentacles");
+				});
+				acePentacles.addEventListener("targetLost", event => {
+				update("");
+				});
+
+				const caption = document.getElementById("caption");
+
+				function update(card){
+					switch(card){
+						case "tenSwords":
+							caption.innerHTML = "This card represents a young man or woman with an airy, intellectual demeanor, likely born a Capricorn, Aquarius, or Pisces, who wants to learn something new from you or have a discussion with you";
+							break;
+						case "acePentacles":
+							caption.innerHTML = "Avoid the temptation to spend critical funds on frivolous goods";
+							break;
+						case "theStar":
+							caption.innerHTML = "Someone is about to change his or her mind about an important decision";
+							break;
+						default:
+						caption.innerHTML = "show card to reader and interpretation will appear here";
+					}
+				}
+
+			}
+
+
+		</script>
+  </head>
+	</head>
+	<body>
+		<h1 id="caption">show card to reader and interpretation will appear here</h1>
+		<div>
+		<a-scene embedded
+      mindar-image="filterMinCF:0.1; filterBeta: 10; imageTargetSrc: targets.mind"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+    >
+      <a-camera position="0 0 0" look-controls="enabled:true"></a-camera>
+	  
+			<a-entity id="tenOfSwords" mindar-image-target="targetIndex: 0">
+		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+			</a-entity>
+
+
+
+			<a-entity id="theStar" mindar-image-target="targetIndex: 2">
+		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+			</a-entity>
+
+
+
+			<a-entity id="aceOfPentacles" mindar-image-target="targetIndex: 1">
+		  <a-plane id="example-plane"  color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+			</a-entity>
+    </a-scene>
+	</div>
+	</body>
+</html>
