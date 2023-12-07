@@ -75,17 +75,19 @@
 						case "theEmpress":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[0][rand];
-							await sleep(10000);
+							await sleep(7000);
 							if(stage!=0) move();
 							break;
 						case "sevenCups":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[1][rand];
+							await sleep(7000);
 							if(stage!=0) move();
-						break;
+							break;
 						case "sixPentacles":
 							pic.src="Face.png";
 							caption.innerHTML = interpretations[2][rand];
+							await sleep(7000);
 							if(stage!=0) move();
 							break;
 						case "back":
@@ -106,7 +108,7 @@
 							stage3();
 							break;
 						case 3:
-							stage3();
+							stage4();
 							break;
 						case 4:
 							stage3();
@@ -138,6 +140,12 @@
 					stage++;
 					caption.innerHTML = "The rightmost card is your future; hold it up to recieve your interpretation";
 					pic.src = "Eye.gif";
+				}
+
+				function stage5(){
+					stage = 0;
+					caption.innerHTML = "Thank you for coming on this journey with me. To restart, hold up the back of any card"
+					pic.src = "Face.png";
 				}
 
 			}
