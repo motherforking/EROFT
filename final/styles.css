@@ -9,6 +9,17 @@ video{
 	margin-left: auto;
 	margin-right: auto;
 }
+@keyframes shine {
+	33% {color: yellow;}
+	66% {color: blue;}
+	100% {color: red;}
+}
+.shiny{
+	color: red;
+	animation-name: shine;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
 img{
 	width: 50%;
 	display: block;
@@ -31,4 +42,12 @@ a-scene {
 #caption {
 	display: block;
 	text-align: center;
+}
+.double{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+img.double{
+	display: inline-block;
 }
