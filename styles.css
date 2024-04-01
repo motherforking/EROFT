@@ -28,3 +28,6 @@ img{
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
+#footer{
+	background-color: lightgrey;
+}
